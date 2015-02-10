@@ -1,0 +1,14 @@
+Appcelerator Titanium Module - Verification issue, unlicensed module(s)
+
+You need to follow steps as follows:
+
+- Open Terminal and run “uuidgen”
+- Copy the code you see on the terminal
+- Open tiapp.xml, replace what’s in the “guid” tag with the the code you copied.
+- In Titanium Studio, do Project –> Clean
+- Run
+
+Concept is to change GUID of module which is mentioned in manifest.
+
+reference:
+http://stackoverflow.com/questions/12106437/appcelerator-titanium-module-verification-issue-unlicensed-modules
