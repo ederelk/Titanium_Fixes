@@ -1,0 +1,21 @@
+To update an existing iOS module and make it 64-bit compatible follow these steps:
+
+    - Open the module's Xcode project. (  dot xcodeproj file.  ) 
+    - You should have at least one warning asking you to update the project to the "recommended settings", do that.
+    - Change all architectures to $(ARCHS_STANDARD) or (arm6,arm7).
+    - Set the deployment target to at least iOS 6.0 or the latest ios version.
+    - Compile. (if you get an error while compiling it would usually be related tothe sdk version specified in the titanium.xcconfig
+      file. make sure you change it to 3.5.0.GA or whatever version you are using currently)
+    - open your command line interface and change diretory (cd /PATH/TO/MODULE/) to your module folder. (make sure you delete the zip file and the build folder from the module's folder)
+    - run this command : python build.py
+    - you module is now built. 
+    - xcrun lipo -info build/lib.<MODULE_NAME>.a
+      the output should be:
+        Architectures in the fat file: build/lib.your_module_here.a are: armv7 i386 x86_64 arm64. (If it is not then you missed something)
+        
+        contact me at yk73@njit.edu if you need help.
+        
+        Good luck.
+
+
+ 
